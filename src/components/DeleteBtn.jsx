@@ -1,15 +1,18 @@
 import { deleteItem } from "../api/invokeApi";
-import { useTransition } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const DeleteBtn = ({ id, setLoading }) => {
-    const [isPending, startTransition] = useTransition();
-    const handleChange = (e) => {
-        startTransition(() => {
-            deleteItem(id, setLoading)
+
+const DeleteBtn = ({ id }) => {
+    const navigate = useNavigate();
+
+    const handleDelete = (e) => {
+        deleteItem(id).then(navigate('/DashBoard')).catch((error) => {
+            console.error(error);
         });
     };
+
     return (
-        <button onClick={handleChange}
+        <button onClick={handleDelete}
             className="
                 bg-gray-300
                 border-0

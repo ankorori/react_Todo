@@ -4,7 +4,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom';
 
 const navigation = [
-    { name: 'Product', href: '/login' },
+    { name: 'ProductAdd', href: '/add' },
     { name: 'dashboad', href: '/dashboard' },
     { name: 'register', href: '/register' },
     { name: 'Company', href: '#' },
@@ -81,9 +81,12 @@ const Header = () => {
                     ))}
                     </div>
                 <div className="py-6">
+                {localStorage.getItem('token') ? 
+                    <h1>Welcome, {localStorage.getItem('nickname')}!</h1> :
                     <Link
                         to="/login"
                         className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Login</Link>
+                }
                 </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import { getAlldeta } from '../api/invokeApi';
 import Header from './Header';
+import DeleteBtn from './DeleteBtn';
 
 const Dashboard = () => {
     const [results, setResults] = useState({
@@ -47,18 +48,19 @@ const Dashboard = () => {
                         <input className="bg-gray-100 border-1 rounded-md p-2 m-2" type="text" defaultValue={item.value} />
                     </div>
                     <div className="basis-1/5">
-                        {item.id}
+                        <DeleteBtn id={item.id} />
                     </div>
                 </div>
             )}
             </div>
 
-            {localStorage.getItem('token') && (
-                <p>Welcome, {localStorage.getItem('nickname')}!</p>
-            )}
-            <button type="button" onClick={handleLogout}>
-                Logout
-            </button>
+            <button className="
+                bg-gray-300
+                border-0
+                p-2
+                rounded-md
+                hover:bg-gray-400
+                hover:text-white" type="button" onClick={handleLogout}>Logout</button>
         </div>
     );
 }
