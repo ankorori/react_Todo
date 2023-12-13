@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { getAlldeta } from '../api/invokeApi';
 import Header from './Header';
 import DeleteBtn from './DeleteBtn';
+import UpdateItemForm from './UpdateItem';
 
 const Dashboard = () => {
     const [results, setResults] = useState({
@@ -43,9 +44,9 @@ const Dashboard = () => {
             </div>
             { error ? <p>{error}</p> :
                 results.items.map((item, index) =>
-                <div key={index} className="flex flex-row justify-around items-center">
-                    <div className="basis-4/5">
-                        <input className="bg-gray-100 border-1 rounded-md p-2 m-2" type="text" defaultValue={item.value} />
+                <div key={index} className="flex flex-col justify-around items-center">
+                    <div className="basis-3/5">
+                        <UpdateItemForm id={item.id} item={item.value} />
                     </div>
                     <div className="basis-1/5">
                         <DeleteBtn id={item.id} />

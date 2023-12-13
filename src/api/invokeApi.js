@@ -26,7 +26,7 @@ export const deleteItem = async (id) => {
 }
 
 export const addItem =  async (e, item) => {
-    try{
+    try {
         if(item === ""){
             alert("空白です");
             return;
@@ -43,16 +43,19 @@ export const addItem =  async (e, item) => {
     };
 }
 
-export const updateItem = (id, item) => {
-    const requestData = {
-        value: item,
-    };
-    axios.put(`${url}/dynamo/${id}`, requestData)
-    .then(res => {
-        console.log(res);
-    }).catch(err => {
-        console.error(err);
-        alert("err!");
+export const updateItem = async (id, item) => {
+    try {
+        if(item === ""){
+            alert("空白です");
+            return;
+        }
+        const requestData = {
+            value: item,
+        };
+        const response =  await axios.put(`${url}/dynamo/${id}`, requestData);
+        return response.data;
+    } catch (error) {
+        console.error(error);
         throw new Error('Network response was not ok');
-    });
+    };
 }
