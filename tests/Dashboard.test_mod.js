@@ -1,4 +1,3 @@
-// FILEPATH: /Users/miyagawatakashi/environment/dynamo_test/my-app/src/components/Dashboard.test.jsx
 import { render, fireEvent } from '@testing-library/react';
 import Dashboard from '../src/components/Dashboard';
 

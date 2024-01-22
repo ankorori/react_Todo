@@ -4,6 +4,7 @@ import Login from '../components/Login';
 import Register from '../components/Register';
 import Dashboard from '../components/Dashboard';
 import Add from '../components/Add';
+import HelloWorld from '../components/HelloWorld';
 import React from 'react';
 
 const RouteIndex = () => {
@@ -16,6 +17,7 @@ const RouteIndex = () => {
                 <Route path="/register" element={<Register />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/add" element={<Add />} />
+                <Route path="/hello" element={<HelloWorld />} />
             </Routes>
         </Router>
         </div>

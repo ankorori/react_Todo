@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"name": "lambda",
+			"path": "../lambda"
+		},
+		{
+			"name": "my-app",
+			"path": "."
+		}
+	],
+	"settings": {
+		"jest.disabledWorkspaceFolders": [
+			"dynamo_test"
+		]
+	}
+}
